@@ -1,54 +1,87 @@
-# React + TypeScript + Vite
+# Simple To-Do List as a webApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Design Document: To-Do List Web App
 
-Currently, two official plugins are available:
+Author: Maxwell Lokshin
+Date: 06/22/2025
+Status: Draft
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Overview
+Build a simple To-Do List Web application using React, TypeScript, and localStorage. This app will allow users to add new tasks, remove old tasks, update current tasks, and mark them complete.
+2. Problem Statement
+Users want to have a way to log tasks to do locally in their browser without signing up or relying on paywall websites. Most solutions out there have you log in with an account.
+3. Goals
+   - ✅Add tasks
+   - ✅Delete Tasks
+   - ✅Update Tasks
+   - ✅Mark tasks complete
+   - ✅Use concepts such as localStorage
+   - ✅Simple UI
+   - ✅Filter tasks Active | Completed
+   - ✅Delete all tasks
 
-## Expanding the ESLint configuration
+4. Non-Goals
+   - ❌ Multi-user support
+   - ❌ Cloud sync or authentication
+   - ❌ Mobile app
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+5. Technical Design
+5.1 Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+| Layer | Tool |
+| ------------- | ------------- |
+| Frontend | React |
+| Styling | CSS |
+| Stroage | Browser |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+5.2 Component Breakdown
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+App
+
+ ├── Header
+ 
+     └── Filter
+     └── Alert
+     └── Delete All 
+ ├── TodoInput
+ 
+ ├── TodoList
+ 
+       └── TodoItem 
+
+
+5.3 State Management
+Using **useState** and **useEffect**:
+- Array of Todo objects
+- Filter: “all” | “active” | “complete”
+6. Tradeoffs and Considerations
+Decision
+Reason
+LocalStorage vs Indexed DB
+Simple, fast, small-scale data
+No third-party state manager
+Unnecessary complexity for small app
+
+
+7. Testing Plan
+Manual testing in Chrome
+Adding data-testid attributes for future unit testing
+Confirm localStorage behavior on refresh
+8. Timeline
+
+| Task | Time |
+| ------------- | ------------- |
+| Design Document | 1 - 2 hours |
+| Setup project | 1 - 2 hours |
+| Build components | 0.5 day |
+| Testing | 3 hours |
+| Local Storage | 0.5 day |
+| Testing | 3 hours |
+| Styling + polish | 0.5 day |
+| Final testing | 3 hours |
+
+10. Appendix
+	Inspiration:
+
+Bootstrap

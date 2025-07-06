@@ -1,9 +1,9 @@
-# Simple To-Do List as a webApp
-
-Design Document: To-Do List Web App
+# Design Document: To-Do List Web App
 
 Author: Maxwell Lokshin
+
 Date: 06/22/2025
+
 Status: Draft
 
 ## 1. **Overview**
